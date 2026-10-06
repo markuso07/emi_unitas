@@ -1,0 +1,479 @@
+* {
+  box-sizing: border-box;
+  }
+
+body {
+margin: 0;
+padding: 0;
+font-family: Arial, sans-serif;
+background-color: #fff7fa;
+color: #444;
+}
+
+/* Encabezado */
+
+h1 {
+text-align: center;
+font-size: 52px;
+color: #c2185b;
+margin-top: 0;
+padding-top: 50px;
+margin-bottom: 10px;
+font-family: Georgia, serif;
+letter-spacing: 2px;
+text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+body > p {
+text-align: center;
+font-size: 18px;
+color: #777;
+margin-bottom: 50px;
+}
+
+/* Títulos de secciones */
+
+h2 {
+text-align: center;
+color: #b31555;
+font-family: Georgia, serif;
+font-size: 30px;
+margin-top: 50px;
+margin-bottom: 25px;
+}
+
+/* Servicios */
+
+.servicios {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 25px;
+max-width: 1000px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+.servicio {
+width: 220px;
+padding: 25px 20px;
+border-radius: 18px;
+background-color: white;
+box-shadow: 0 5px 18px rgba(194, 24, 91, 0.12);
+text-align: center;
+transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.servicio:hover {
+transform: translateY(-6px);
+box-shadow: 0 10px 25px rgba(194, 24, 91, 0.2);
+}
+
+.servicio h3 {
+color: #c2185b;
+font-family: Georgia, serif;
+font-size: 21px;
+}
+
+.servicio p {
+color: #777;
+line-height: 1.5;
+}
+
+/* Precios */
+
+ul {
+list-style: none;
+padding: 0;
+max-width: 600px;
+margin: 0 auto;
+}
+
+ul li {
+background-color: white;
+margin: 10px 20px;
+padding: 15px 20px;
+border-radius: 12px;
+box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Galería */
+
+.galeria {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 20px;
+padding: 20px;
+}
+
+.galeria img {
+width: 220px;
+height: 220px;
+object-fit: cover;
+border-radius: 15px;
+}
+
+/* Botón de WhatsApp */
+
+.boton-whatsapp {
+display: block;
+width: fit-content;
+margin: 25px auto 60px;
+padding: 15px 28px;
+background-color: #25D366;
+color: white;
+text-decoration: none;
+border-radius: 30px;
+font-weight: bold;
+font-size: 17px;
+box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+transition: transform 0.2s;
+}
+
+.boton-whatsapp:hover {
+transform: scale(1.05);
+}
+.cabecera {
+text-align: center;
+padding: 45px 20px;
+background: linear-gradient(135deg, #ffe4ee, #fff7fa);
+border-bottom: 1px solid #f3c5d6;
+}
+
+.cabecera h1 {
+margin: 0;
+padding: 0;
+font-size: 52px;
+}
+
+.cabecera > p {
+margin: 10px 0 25px;
+font-family: Georgia, serif;
+font-style: italic;
+color: #777;
+font-size: 20px;
+}
+
+.cabecera nav {
+margin-bottom: 25px;
+}
+
+.cabecera nav a {
+color: #b31555;
+text-decoration: none;
+font-weight: bold;
+margin: 0 12px;
+}
+
+.cabecera nav a:hover {
+text-decoration: underline;
+}
+
+.boton-reservar {
+display: inline-block;
+padding: 13px 25px;
+background-color: #c2185b;
+color: white;
+text-decoration: none;
+border-radius: 25px;
+font-weight: bold;
+box-shadow: 0 5px 12px rgba(194, 24, 91, 0.25);
+transition: transform 0.2s;
+}
+
+.boton-reservar:hover {
+transform: scale(1.05);
+}
+.precios {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 25px;
+max-width: 1000px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+.precio {
+width: 220px;
+padding: 25px 20px;
+border-radius: 18px;
+background-color: white;
+box-shadow: 0 5px 18px rgba(194, 24, 91, 0.12);
+text-align: center;
+transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.precio:hover {
+transform: translateY(-6px);
+box-shadow: 0 10px 25px rgba(194, 24, 91, 0.2);
+}
+
+.precio h3 {
+color: #c2185b;
+font-family: Georgia, serif;
+font-size: 21px;
+}
+
+.precio p {
+color: #777;
+line-height: 1.5;
+}
+
+.precio strong {
+display: block;
+margin-top: 15px;
+font-size: 24px;
+color: #b31555;
+}
+.boton-precio {
+display: inline-block;
+margin-top: 15px;
+padding: 10px 22px;
+background-color: #c2185b;
+color: white;
+text-decoration: none;
+border-radius: 20px;
+font-weight: bold;
+font-size: 14px;
+transition: transform 0.2s, background-color 0.2s;
+}
+
+.boton-precio:hover {
+transform: scale(1.05);
+background-color: #a3154d;
+}
+```css
+/* ==============================
+   UBICACIÓN Y CONTACTO
+================================ */
+
+.contacto {
+    padding: 80px 20px;
+    background: #fff7fa;
+    text-align: center;
+}
+
+.contacto > h2 {
+    font-size: 36px;
+    margin-bottom: 45px;
+}
+
+
+/* CONTENEDOR DE TARJETAS */
+
+.contacto-contenido {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+
+/* TARJETAS */
+
+.contacto-item {
+    background: white;
+    padding: 28px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    transition: 0.3s ease;
+    border: 1px solid #f3e4e9;
+}
+
+.contacto-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
+}
+
+
+/* ICONOS */
+
+.contacto-item > span {
+    min-width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #fff0f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+}
+
+
+/* TEXTOS */
+
+.contacto-item h3 {
+    margin: 0 0 7px;
+    font-size: 18px;
+}
+
+.contacto-item p {
+    margin: 0;
+    color: #777;
+    line-height: 1.5;
+}
+
+
+/* BOTONES */
+
+.contacto-botones {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.contacto-botones a {
+    text-decoration: none;
+    padding: 15px 28px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.boton-whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.boton-instagram {
+    background: #222;
+    color: white;
+}
+
+.contacto-botones a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ==============================
+   RESERVA FINAL
+================================ */
+
+.reserva-final {
+    text-align: center;
+    padding: 80px 20px;
+    background: white;
+}
+
+.reserva-final h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.reserva-final p {
+    color: #777;
+    margin-bottom: 25px;
+}
+
+
+/* ==============================
+   FOOTER
+================================ */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #222;
+    color: white;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+/* ==============================
+   CELULARES
+================================ */
+
+@media (max-width: 700px) {
+
+    .contacto-contenido {
+        grid-template-columns: 1fr;
+    }
+
+    .contacto > h2 {
+        font-size: 30px;
+    }
+
+    .contacto-item {
+        padding: 22px;
+    }
+
+    .contacto-botones {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contacto-botones a {
+        width: 80%;
+    }
+
+}
+```
+```css
+/* ==============================
+   MAPA
+================================ */
+
+.mapa {
+    max-width: 1000px;
+    margin: 40px auto 0;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.10);
+    border: 1px solid #f0e1e6;
+}
+
+.mapa iframe {
+    display: block;
+    width: 100%;
+    height: 350px;
+}
+
+
+/* MAPA EN CELULAR */
+
+@media (max-width: 700px) {
+
+    .mapa {
+        margin-top: 30px;
+        border-radius: 18px;
+    }
+
+    .mapa iframe {
+        height: 300px;
+    }
+
+}
+```
+/* TARJETA INSTAGRAM CLICKEABLE */
+
+.contacto-instagram {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.contacto-instagram:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.contacto-instagram h3 {
+    transition: 0.3s ease;
+}
+
+.contacto-instagram:hover h3 {
+    color: #d62976;
+}
