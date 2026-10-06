@@ -7,584 +7,779 @@
 
     <title>Emi Uñitas 💅</title>
 
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Fuentes -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Parisienne&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Parisienne&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- DISEÑO DE LA NUEVA PORTADA -->
+    <style>
+
+        /* PORTADA */
+
+        .cabecera {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            background: #f3e5dc;
+            overflow: hidden;
+        }
+
+        .portada-contenido {
+            width: 100%;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            align-items: stretch;
+        }
+
+        /* PARTE IZQUIERDA */
+
+        .portada-texto {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 70px 8%;
+            background:
+                radial-gradient(
+                    circle at top left,
+                    #f8eee8,
+                    #f3e5dc 55%,
+                    #ead7cc
+                );
+            position: relative;
+            z-index: 2;
+        }
+
+        .portada-texto::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.25);
+            left: -150px;
+            bottom: -100px;
+        }
+
+        .portada-logo {
+            font-family: 'Parisienne', cursive;
+            font-size: clamp(3rem, 5vw, 5rem);
+            color: #292323;
+            margin-bottom: 35px;
+            line-height: 1;
+        }
+
+        .portada-subtitulo {
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            font-weight: 600;
+            color: #9f6868;
+            margin-bottom: 18px;
+        }
+
+        .portada-linea {
+            width: 55px;
+            height: 3px;
+            background: #b87575;
+            margin-bottom: 25px;
+        }
+
+        .portada-titulo {
+            font-size: clamp(3rem, 5vw, 5.5rem);
+            line-height: 1.05;
+            font-weight: 600;
+            color: #292323;
+            margin-bottom: 20px;
+        }
+
+        .portada-titulo span {
+            color: #b87575;
+        }
+
+        .portada-frase {
+            font-size: clamp(1.4rem, 2.5vw, 2rem);
+            font-weight: 400;
+            color: #3c3030;
+            margin-bottom: 18px;
+        }
+
+        .portada-descripcion {
+            max-width: 560px;
+            color: #706464;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        /* BOTONES */
+
+        .portada-botones {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 45px;
+        }
+
+        .portada-botones a {
+            text-decoration: none;
+            padding: 14px 27px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .portada-reservar {
+            background: #b87575;
+            color: white;
+            box-shadow: 0 8px 20px rgba(150,90,90,0.18);
+        }
+
+        .portada-reservar:hover {
+            background: #965d5d;
+            transform: translateY(-3px);
+        }
+
+        .portada-trabajos {
+            border: 1px solid #b87575;
+            color: #5b4141;
+            background: rgba(255,255,255,0.35);
+        }
+
+        .portada-trabajos:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        /* CARACTERÍSTICAS */
+
+        .portada-caracteristicas {
+            display: flex;
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+
+        .caracteristica {
+            text-align: center;
+            min-width: 90px;
+        }
+
+        .caracteristica-icono {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            font-size: 1.25rem;
+        }
+
+        .caracteristica p {
+            font-size: 0.75rem;
+            line-height: 1.3;
+            color: #5e5050;
+        }
+
+        /* FOTO DERECHA */
+
+        .portada-foto {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background: #d7c3b8;
+        }
+
+        .portada-foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 0.8s ease;
+        }
+
+        .portada-foto:hover img {
+            transform: scale(1.02);
+        }
+
+        /* CURVA ENTRE TEXTO Y FOTO */
+
+        .portada-foto::before {
+            content: "";
+            position: absolute;
+            left: -65px;
+            top: 0;
+            width: 130px;
+            height: 100%;
+            background: #f3e5dc;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        /* BOTÓN DE WHATSAPP */
+
+        .portada-whatsapp {
+            position: absolute;
+            right: 30px;
+            bottom: 30px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25d366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.6rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            z-index: 5;
+            transition: 0.3s ease;
+        }
+
+        .portada-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+
+            .portada-contenido {
+                grid-template-columns: 1fr;
+            }
+
+            .portada-texto {
+                min-height: 70vh;
+                padding: 70px 30px;
+                order: 1;
+            }
+
+            .portada-foto {
+                min-height: 55vh;
+                order: 2;
+            }
+
+            .portada-foto::before {
+                display: none;
+            }
+
+            .portada-logo {
+                font-size: 3.5rem;
+            }
+
+            .portada-titulo {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .portada-texto {
+                padding: 55px 22px;
+            }
+
+            .portada-logo {
+                font-size: 3rem;
+                margin-bottom: 25px;
+            }
+
+            .portada-titulo {
+                font-size: 3rem;
+            }
+
+            .portada-frase {
+                font-size: 1.3rem;
+            }
+
+            .portada-descripcion {
+                font-size: 0.9rem;
+            }
+
+            .portada-caracteristicas {
+                gap: 15px;
+                justify-content: space-between;
+            }
+
+            .portada-foto {
+                min-height: 450px;
+            }
+        }
+
+    </style>
+
 </head>
 
 <body>
 
     <!-- ================================
-         NAVEGACIÓN
-    ================================= -->
-
-    <header class="nav">
-
-        <a href="#inicio" class="logo-nav">
-            <strong>Emi Uñitas ♡</strong>
-            <small>MANICURA & NAIL ART</small>
-        </a>
-
-        <nav class="menu">
-            <a href="#inicio">Inicio</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#precios">Precios</a>
-            <a href="#galeria">Galería</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
-
-        <a href="https://wa.me/598093371416" class="nav-btn">
-            Reservar turno
-        </a>
-
-    </header>
-
-
-    <!-- ================================
          PORTADA
     ================================= -->
 
-    <main id="inicio">
+    <header class="cabecera">
 
-        <section class="hero">
+        <div class="portada-contenido">
 
             <!-- TEXTO -->
 
-            <div class="hero-text">
+            <div class="portada-texto">
 
-                <div class="eyebrow">
+                <div class="portada-logo">
+                    Emi Uñitas 💅
+                </div>
+
+                <p class="portada-subtitulo">
                     MANICURA & NAIL ART
-                </div>
+                </p>
 
-                <div class="hero-logo">
-                    Emi <span>Uñitas</span> ♡
-                </div>
+                <div class="portada-linea"></div>
 
-                <h1 class="hero-title">
+                <h1 class="portada-titulo">
                     Belleza en cada <span>detalle</span>
                 </h1>
 
-                <p class="hero-subtitle">
+                <p class="portada-frase">
                     Diseños únicos para uñas increíbles.
                 </p>
 
-                <p class="hero-description">
-                    Diseños únicos, delicados y personalizados para que tus uñas
-                    luzcan increíbles. Elegí tu estilo y dejá que cada detalle
+                <p class="portada-descripcion">
+                    Diseños únicos, delicados y personalizados
+                    para que tus uñas luzcan increíbles.
+                    Elegí tu estilo y dejá que cada detalle
                     haga la diferencia.
                 </p>
 
-                <div class="hero-buttons">
+                <!-- BOTONES -->
 
-                    <a
-                        href="https://wa.me/598093371416"
-                        class="btn btn-primary"
-                    >
-                        💅 Reservar turno →
+                <div class="portada-botones">
+
+                    <a href="https://wa.me/598093371416"
+                       class="portada-reservar"
+                       target="_blank">
+                        💬 Reservar turno →
                     </a>
 
-                    <a
-                        href="#galeria"
-                        class="btn btn-secondary"
-                    >
+                    <a href="#galeria"
+                       class="portada-trabajos">
                         Ver trabajos →
                     </a>
 
                 </div>
 
-            </div>
+                <!-- CARACTERÍSTICAS -->
 
+                <div class="portada-caracteristicas">
 
-            <!-- FOTO PRINCIPAL -->
+                    <div class="caracteristica">
 
-            <div class="hero-photo">
+                        <div class="caracteristica-icono">
+                            ✨
+                        </div>
 
-                <img
-                    src="WhatsApp Image 2026-10-06 at 13.14.36.jpeg"
-                    alt="Trabajos de uñas de Emi Uñitas"
-                >
+                        <p>
+                            Diseños<br>
+                            personalizados
+                        </p>
 
-            </div>
+                    </div>
 
-        </section>
+                    <div class="caracteristica">
 
+                        <div class="caracteristica-icono">
+                            ♡
+                        </div>
 
-        <!-- ================================
-             BENEFICIOS
-        ================================= -->
+                        <p>
+                            Productos<br>
+                            de calidad
+                        </p>
 
-        <div class="beneficios">
+                    </div>
 
-            <div class="beneficio">
+                    <div class="caracteristica">
 
-                <div class="beneficio-icono">
-                    💅
+                        <div class="caracteristica-icono">
+                            ♡
+                        </div>
+
+                        <p>
+                            Resultados<br>
+                            duraderos
+                        </p>
+
+                    </div>
+
                 </div>
 
-                <h3>DISEÑOS ÚNICOS</h3>
+            </div>
+
+            <!-- FOTO DE PORTADA -->
+
+            <div class="portada-foto">
+
+                <!-- CORREGIDO: ahora usa portada.jpeg -->
+                <img src="./portada.jpeg"
+                     alt="Emi Uñitas - Manicura y Nail Art">
+
+                <!-- WHATSAPP -->
+
+                <a href="https://wa.me/598093371416"
+                   class="portada-whatsapp"
+                   target="_blank"
+                   aria-label="Reservar por WhatsApp">
+                    💬
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================================
+         SERVICIOS
+    ================================= -->
+
+    <section id="servicios">
+
+        <h2>Mis servicios 💅</h2>
+
+        <div class="servicios">
+
+            <div class="servicio">
+
+                <h3>Kapping</h3>
 
                 <p>
-                    Cada trabajo es personalizado.
+                    Fortalecimiento de las uñas naturales.
                 </p>
 
             </div>
 
+            <div class="servicio">
 
-            <div class="beneficio">
-
-                <div class="beneficio-icono">
-                    ✨
-                </div>
-
-                <h3>DETALLES</h3>
+                <h3>Soft Gel</h3>
 
                 <p>
-                    Cuidamos cada pequeño detalle.
+                    Extensión de uñas con tips de gel,
+                    liviana, resistente y de aspecto natural.
                 </p>
 
             </div>
 
+            <div class="servicio">
 
-            <div class="beneficio">
-
-                <div class="beneficio-icono">
-                    ♡
-                </div>
-
-                <h3>CALIDAD</h3>
+                <h3>Esmaltado semipermanente</h3>
 
                 <p>
-                    Productos y técnicas de calidad.
+                    Color y brillo que duran mucho más.
                 </p>
 
             </div>
 
+            <div class="servicio">
 
-            <div class="beneficio">
-
-                <div class="beneficio-icono">
-                    💅
-                </div>
-
-                <h3>CON RESERVA</h3>
+                <h3>Nail Art</h3>
 
                 <p>
-                    Coordiná tu turno previamente.
+                    Diseños personalizados para darle
+                    un toque único a tus uñas.
                 </p>
 
             </div>
 
         </div>
 
-
-        <!-- ================================
-             SERVICIOS
-        ================================= -->
-
-        <section id="servicios">
-
-            <div class="section-heading">
-
-                <div class="mini">
-                    LO QUE HACEMOS
-                </div>
-
-                <h2>Mis servicios 💅</h2>
-
-                <p>
-                    Elegí el servicio ideal para tus uñas.
-                </p>
-
-            </div>
+    </section>
 
 
-            <div class="servicios">
+    <!-- ================================
+         PRECIOS
+    ================================= -->
 
-                <div class="servicio">
+    <section id="precios">
 
-                    <span class="servicio-num">
-                        01
-                    </span>
+        <h2>Precios 💰</h2>
 
-                    <h3>Kapping</h3>
+        <div class="precios">
 
-                    <p>
-                        Fortalecimiento de las uñas naturales.
-                    </p>
+            <div class="precio">
 
-                </div>
-
-
-                <div class="servicio">
-
-                    <span class="servicio-num">
-                        02
-                    </span>
-
-                    <h3>Soft Gel</h3>
-
-                    <p>
-                        Extensión de uñas con tips de gel,
-                        liviana, resistente y de aspecto natural.
-                    </p>
-
-                </div>
-
-
-                <div class="servicio">
-
-                    <span class="servicio-num">
-                        03
-                    </span>
-
-                    <h3>Esmaltado semipermanente</h3>
-
-                    <p>
-                        Color y brillo que duran mucho más.
-                    </p>
-
-                </div>
-
-
-                <div class="servicio">
-
-                    <span class="servicio-num">
-                        04
-                    </span>
-
-                    <h3>Nail Art</h3>
-
-                    <p>
-                        Diseños personalizados para darle
-                        un toque único a tus uñas.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================================
-             PRECIOS
-        ================================= -->
-
-        <section id="precios">
-
-            <div class="section-heading">
-
-                <div class="mini">
-                    ELEGÍ TU SERVICIO
-                </div>
-
-                <h2>Precios 💰</h2>
+                <h3>Kapping</h3>
 
                 <p>
-                    Consultá disponibilidad y reservá tu turno.
+                    Fortalecimiento de las uñas naturales.
                 </p>
 
-            </div>
-
-
-            <div class="precios">
-
-                <div class="precio">
-
-                    <h3>Kapping</h3>
-
-                    <p>
-                        Fortalecimiento de las uñas naturales.
-                    </p>
-
-                    <strong>$___</strong>
-
-                    <a
-                        href="https://wa.me/598093371416?text=Hola%20Emi%20💅,%20quisiera%20reservar%20un%20turno%20para%20Kapping."
-                        class="boton-precio"
-                    >
-                        Reservar
-                    </a>
-
-                </div>
-
-
-                <div class="precio">
-
-                    <h3>Soft Gel</h3>
-
-                    <p>
-                        Uñas con un acabado elegante y duradero.
-                    </p>
-
-                    <strong>$___</strong>
-
-                    <a
-                        href="https://wa.me/598093371416?text=Hola%20Emi%20💅,%20quisiera%20reservar%20un%20turno%20para%20Soft%20Gel."
-                        class="boton-precio"
-                    >
-                        Reservar
-                    </a>
-
-                </div>
-
-
-                <div class="precio">
-
-                    <h3>Esmaltado semipermanente</h3>
-
-                    <p>
-                        Color y brillo que duran mucho más.
-                    </p>
-
-                    <strong>$___</strong>
-
-                    <a
-                        href="https://wa.me/598093371416?text=Hola%20Emi%20💅,%20quisiera%20reservar%20un%20turno%20para%20Esmaltado%20semipermanente."
-                        class="boton-precio"
-                    >
-                        Reservar
-                    </a>
-
-                </div>
-
-
-                <div class="precio">
-
-                    <h3>Nail Art</h3>
-
-                    <p>
-                        Diseños personalizados para tus uñas.
-                    </p>
-
-                    <strong>$___</strong>
-
-                    <a
-                        href="https://wa.me/598093371416?text=Hola%20Emi%20💅,%20quisiera%20reservar%20un%20turno%20para%20Nail%20Art."
-                        class="boton-precio"
-                    >
-                        Reservar
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================================
-             GALERÍA
-        ================================= -->
-
-        <section id="galeria">
-
-            <div class="section-heading">
-
-                <div class="mini">
-                    NUESTROS TRABAJOS
-                </div>
-
-                <h2>Galería 📸</h2>
-
-                <p>
-                    Algunos de nuestros diseños.
-                </p>
-
-            </div>
-
-
-            <div class="galeria">
-
-                <img
-                    src="uñitas1.jpg"
-                    alt="Diseño de uñas de Emi Uñitas"
-                >
-
-                <img
-                    src="portadita.png"
-                    alt="Diseño de uñas de Emi Uñitas"
-                >
-
-                <img
-                    src="WhatsApp Image 2026-10-06 at 13.14.36.jpeg"
-                    alt="Trabajo de uñas de Emi Uñitas"
-                >
-
-            </div>
-
-        </section>
-
-
-        <!-- ================================
-             CONTACTO
-        ================================= -->
-
-        <section id="contacto" class="contacto">
-
-            <div class="section-heading">
-
-                <div class="mini">
-                    ESTAMOS PARA VOS
-                </div>
-
-                <h2>Ubicación y contacto 📍</h2>
-
-                <p>
-                    Contactanos y coordinamos tu próximo turno.
-                </p>
-
-            </div>
-
-
-            <div class="contacto-contenido">
-
-                <div class="contacto-item">
-
-                    <span>📍</span>
-
-                    <div>
-
-                        <h3>Ubicación</h3>
-
-                        <p>
-                            Carmelo René González 2325, Sauce
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <a
-                    href="https://wa.me/598093371416"
-                    class="contacto-item"
-                >
-
-                    <span>📱</span>
-
-                    <div>
-
-                        <h3>WhatsApp</h3>
-
-                        <p>
-                            Reservá tu turno directamente por WhatsApp.
-                        </p>
-
-                    </div>
-
-                </a>
-
-
-                <a
-                    href="https://www.instagram.com/emi_unitas/"
-                    class="contacto-item"
-                    target="_blank"
-                >
-
-                    <span>📸</span>
-
-                    <div>
-
-                        <h3>Instagram</h3>
-
-                        <p>
-                            Seguinos para ver nuestros últimos trabajos.
-                        </p>
-
-                    </div>
-
-                </a>
-
-
-                <div class="contacto-item">
-
-                    <span>🕐</span>
-
-                    <div>
-
-                        <h3>Horarios</h3>
-
-                        <p>
-                            Lunes a sábado · Con reserva previa
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- MAPA -->
-
-            <div class="mapa">
-
-                <iframe
-                    src="https://www.google.com/maps?q=Carmelo+Rene+Gonzalez+2325,+Sauce,+Canelones,+Uruguay&output=embed"
-                    width="100%"
-                    height="350"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy">
-                </iframe>
-
-            </div>
-
-
-            <!-- BOTONES -->
-
-            <div class="contacto-botones">
-
-                <a
-                    href="https://wa.me/598093371416"
-                    class="boton-whatsapp"
-                >
-                    💬 Reservar por WhatsApp
-                </a>
-
-
-                <a
-                    href="https://www.instagram.com/emi_unitas/"
-                    class="boton-instagram"
-                    target="_blank"
-                >
-                    📸 Ver Instagram
+                <strong>$___</strong>
+
+                <a href="https://wa.me/598093371416?text=Hola%20Emi%20💅,%20quisiera%20reservar%20un%20turno%20para%20Kapping"
+                   class="boton-precio"
+                   target="_blank">
+                    Reservar
                 </a>
 
             </div>
 
-        </section>
+
+            <div class="precio">
+
+                <h3>Soft Gel</h3>
+
+                <p>
+                    Uñas con un acabado elegante y duradero.
+                </p>
+
+                <strong>$___</strong>
+
+                <a href="https://wa.me/598093371416?text=Hola%20Emi%20💅,%20quisiera%20reservar%20un%20turno%20para%20Soft%20Gel"
+                   class="boton-precio"
+                   target="_blank">
+                    Reservar
+                </a>
+
+            </div>
 
 
-        <!-- ================================
-             RESERVA FINAL
-        ================================= -->
+            <div class="precio">
 
-        <section class="reserva-final">
+                <h3>Esmaltado semipermanente</h3>
 
-            <h2>
-                ¿Querés reservar tu turno? 💅
-            </h2>
+                <p>
+                    Color y brillo que duran mucho más.
+                </p>
 
-            <p>
-                Escribinos por WhatsApp y coordinamos tu horario.
-            </p>
+                <strong>$___</strong>
 
-            <a
-                href="https://wa.me/598093371416"
-                class="boton-whatsapp"
-            >
-                Reservar por WhatsApp 📱
+                <a href="https://wa.me/598093371416?text=Hola%20Emi%20💅,%20quisiera%20reservar%20un%20turno%20para%20Esmaltado%20semipermanente"
+                   class="boton-precio"
+                   target="_blank">
+                    Reservar
+                </a>
+
+            </div>
+
+
+            <div class="precio">
+
+                <h3>Nail Art</h3>
+
+                <p>
+                    Diseños personalizados para tus uñas.
+                </p>
+
+                <strong>$___</strong>
+
+                <a href="https://wa.me/598093371416?text=Hola%20Emi%20💅,%20quisiera%20reservar%20un%20turno%20para%20Nail%20Art"
+                   class="boton-precio"
+                   target="_blank">
+                    Reservar
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         GALERÍA
+    ================================= -->
+
+    <section id="galeria">
+
+        <h2>Galería 📸</h2>
+
+        <div class="galeria">
+
+            <!-- LAS 6 FOTOS CORRECTAS -->
+
+            <img src="./unas1.jpeg"
+                 alt="Diseño de uñas 1">
+
+            <img src="./unas2.jpeg"
+                 alt="Diseño de uñas 2">
+
+            <img src="./unas3.jpeg"
+                 alt="Diseño de uñas 3">
+
+            <img src="./unas4.jpeg"
+                 alt="Diseño de uñas 4">
+
+            <img src="./unas5.jpeg"
+                 alt="Diseño de uñas 5">
+
+            <img src="./unas6.jpeg"
+                 alt="Diseño de uñas 6">
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         CONTACTO
+    ================================= -->
+
+    <section id="contacto"
+             class="contacto">
+
+        <h2>Ubicación y contacto 📍</h2>
+
+        <div class="contacto-contenido">
+
+            <div class="contacto-item">
+
+                <span>📍</span>
+
+                <div>
+
+                    <h3>Ubicación</h3>
+
+                    <p>
+                        Carmelo René González 2325, Sauce
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="contacto-item">
+
+                <span>📱</span>
+
+                <div>
+
+                    <h3>WhatsApp</h3>
+
+                    <p>
+                        Reservá tu turno directamente por WhatsApp.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <a href="https://www.instagram.com/emi_unitas/"
+               class="contacto-item contacto-instagram"
+               target="_blank">
+
+                <span>📸</span>
+
+                <div>
+
+                    <h3>Instagram</h3>
+
+                    <p>
+                        Seguinos para ver nuestros últimos trabajos.
+                    </p>
+
+                </div>
+
             </a>
 
-        </section>
 
-    </main>
+            <div class="contacto-item">
+
+                <span>🕐</span>
+
+                <div>
+
+                    <h3>Horarios</h3>
+
+                    <p>
+                        Lunes a sábado · Con reserva previa
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MAPA -->
+
+        <div class="mapa">
+
+            <iframe
+                src="https://www.google.com/maps?q=Carmelo+Rene+Gonzalez+2325,+Sauce,+Canelones,+Uruguay&output=embed"
+                width="100%"
+                height="350"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+
+        </div>
+
+
+        <!-- BOTONES -->
+
+        <div class="contacto-botones">
+
+            <a href="https://wa.me/598093371416"
+               class="boton-whatsapp"
+               target="_blank">
+                💬 Reservar por WhatsApp
+            </a>
+
+            <a href="https://www.instagram.com/emi_unitas/"
+               class="boton-instagram"
+               target="_blank">
+                📸 Ver Instagram
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         RESERVA FINAL
+    ================================= -->
+
+    <section class="reserva-final">
+
+        <h2>
+            ¿Querés reservar tu turno? 💅
+        </h2>
+
+        <p>
+            Escribinos por WhatsApp y coordinamos tu horario.
+        </p>
+
+        <a href="https://wa.me/598093371416"
+           class="boton-whatsapp"
+           target="_blank">
+            Reservar por WhatsApp 📱
+        </a>
+
+    </section>
+
+
+    <!-- ================================
+         WHATSAPP FLOTANTE
+    ================================= -->
+
+    <a href="https://wa.me/598093371416"
+       class="whatsapp-flotante"
+       target="_blank"
+       aria-label="Reservar por WhatsApp">
+        💬
+    </a>
 
 
     <!-- ================================
@@ -598,17 +793,6 @@
         </p>
 
     </footer>
-
-
-    <!-- WHATSAPP FLOTANTE -->
-
-    <a
-        href="https://wa.me/598093371416"
-        class="whatsapp-flotante"
-        aria-label="Contactar por WhatsApp"
-    >
-        💬
-    </a>
 
 </body>
 
