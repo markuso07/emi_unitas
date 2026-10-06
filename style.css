@@ -1174,3 +1174,262 @@ footer{
         bottom:17px;
     }
 }
+/* ==========================================
+   SERVICIOS - DISEÑO PROFESIONAL
+========================================== */
+
+.servicios-section {
+    padding: 100px 8%;
+    background: #faf7f2;
+    text-align: center;
+}
+
+/* ENCABEZADO */
+
+.servicios-header {
+    max-width: 750px;
+    margin: 0 auto 55px;
+}
+
+.servicios-subtitulo {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: 600;
+    color: #a88b78;
+    margin-bottom: 12px;
+}
+
+.servicios-header h2 {
+    font-size: 42px;
+    font-weight: 600;
+    color: #3e3430;
+    margin-bottom: 15px;
+}
+
+.servicios-header p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #7b6e67;
+    max-width: 620px;
+    margin: auto;
+}
+
+
+/* GRID */
+
+.servicios-grid {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+
+    text-align: left;
+}
+
+
+/* TARJETAS */
+
+.servicio-card {
+    background: rgba(255, 255, 255, 0.9);
+
+    border: 1px solid #eee4dc;
+    border-radius: 24px;
+
+    padding: 35px;
+
+    display: flex;
+    gap: 25px;
+
+    box-shadow: 0 10px 30px rgba(72, 52, 40, 0.06);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* EFECTO HOVER */
+
+.servicio-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 18px 40px rgba(72, 52, 40, 0.12);
+
+    border-color: #d9c2b1;
+}
+
+
+/* ICONOS */
+
+.servicio-icono {
+    min-width: 65px;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f3e8df;
+
+    font-size: 28px;
+}
+
+
+/* CONTENIDO */
+
+.servicio-contenido {
+    flex: 1;
+}
+
+.servicio-contenido h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #3e3430;
+
+    margin-bottom: 12px;
+}
+
+.servicio-contenido p {
+    font-size: 14px;
+    line-height: 1.7;
+
+    color: #756861;
+
+    margin-bottom: 25px;
+}
+
+
+/* PARTE INFERIOR */
+
+.servicio-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+
+/* PRECIO */
+
+.precio {
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #9a7863;
+}
+
+
+/* BOTÓN */
+
+.btn-servicio {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 20px;
+
+    border-radius: 30px;
+
+    background: #3e3430;
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition: all 0.3s ease;
+}
+
+.btn-servicio:hover {
+    background: #9a7863;
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   SERVICIOS - CELULAR
+========================================== */
+
+@media (max-width: 800px) {
+
+    .servicios-section {
+        padding: 75px 6%;
+    }
+
+    .servicios-header {
+        margin-bottom: 40px;
+    }
+
+    .servicios-header h2 {
+        font-size: 34px;
+    }
+
+    .servicios-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .servicio-card {
+        padding: 28px;
+    }
+
+}
+
+
+/* CELULARES PEQUEÑOS */
+
+@media (max-width: 500px) {
+
+    .servicios-section {
+        padding: 65px 5%;
+    }
+
+    .servicios-header h2 {
+        font-size: 30px;
+    }
+
+    .servicios-header p {
+        font-size: 14px;
+    }
+
+    .servicio-card {
+        padding: 24px;
+
+        gap: 18px;
+    }
+
+    .servicio-icono {
+        min-width: 52px;
+        width: 52px;
+        height: 52px;
+
+        font-size: 22px;
+    }
+
+    .servicio-contenido h3 {
+        font-size: 19px;
+    }
+
+    .servicio-contenido p {
+        font-size: 13px;
+    }
+
+    .servicio-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .btn-servicio {
+        width: 100%;
+    }
+
+}
