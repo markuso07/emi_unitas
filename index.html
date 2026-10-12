@@ -7,6 +7,7 @@
     <title>Emi Uñitas | Manicura y Belleza</title>
 
     <meta name="description" content="Emi Uñitas. Servicios de manicura, cejas, depilación y tratamientos capilares en Sauce, Canelones. Reservá tu turno por WhatsApp.">
+    <meta name="theme-color" content="#b86f62">
 
     <!-- FUENTES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +28,32 @@
 
         .servicio-bottom {
             margin-top: 20px;
+        }
+
+        /* Icono oficial de WhatsApp en el botón flotante */
+        .whatsapp-flotante {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+        }
+
+        .icono-whatsapp {
+            display: block;
+            width: 23px;
+            height: 23px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 600px) {
+            .whatsapp-flotante {
+                gap: 7px;
+            }
+
+            .icono-whatsapp {
+                width: 21px;
+                height: 21px;
+            }
         }
     </style>
 </head>
@@ -565,7 +592,14 @@
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Reservar por WhatsApp">
-        WhatsApp
+        <svg
+            class="icono-whatsapp"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            aria-hidden="true">
+            <path fill="currentColor" d="M20.52 3.48A11.82 11.82 0 0 0 12.08 0C5.5 0 .15 5.35.15 11.93c0 2.1.55 4.15 1.6 5.96L.05 24l6.27-1.65a11.9 11.9 0 0 0 5.76 1.47h.01c6.58 0 11.93-5.35 11.93-11.93 0-3.18-1.24-6.17-3.5-8.41ZM12.09 21.8a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.72.98.99-3.63-.24-.37a9.85 9.85 0 0 1-1.52-5.26c0-5.46 4.44-9.9 9.9-9.9a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.9 7c0 5.46-4.45 9.9-9.91 9.9Zm5.43-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.47-2.4-1.5-.89-.8-1.49-1.78-1.66-2.08-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.08 4.48.71.31 1.27.49 1.7.63.72.23 1.37.2 1.89.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z" />
+        </svg>
+        <span>WhatsApp</span>
     </a>
 
 
@@ -580,6 +614,89 @@
         </p>
 
     </footer>
+
+
+    <!-- VISOR DE FOTOGRAFÍAS: se abre al tocar una imagen de la galería -->
+    <div class="visor-galeria" id="visorGaleria" aria-hidden="true">
+        <button class="visor-cerrar" id="cerrarVisor" type="button" aria-label="Cerrar fotografía">&times;</button>
+        <button class="visor-flecha visor-anterior" id="fotoAnterior" type="button" aria-label="Fotografía anterior">&#10094;</button>
+        <img id="imagenAmpliada" src="" alt="Trabajo de Emi Uñitas">
+        <button class="visor-flecha visor-siguiente" id="fotoSiguiente" type="button" aria-label="Fotografía siguiente">&#10095;</button>
+        <p class="visor-contador" id="contadorFotos"></p>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const fotos = Array.from(document.querySelectorAll(".galeria img"));
+        const visor = document.getElementById("visorGaleria");
+        const imagenAmpliada = document.getElementById("imagenAmpliada");
+        const cerrar = document.getElementById("cerrarVisor");
+        const anterior = document.getElementById("fotoAnterior");
+        const siguiente = document.getElementById("fotoSiguiente");
+        const contador = document.getElementById("contadorFotos");
+        let indiceActual = 0;
+
+        if (!fotos.length || !visor) return;
+
+        function mostrarFoto(indice) {
+            indiceActual = (indice + fotos.length) % fotos.length;
+            imagenAmpliada.src = fotos[indiceActual].src;
+            imagenAmpliada.alt = fotos[indiceActual].alt || "Trabajo de Emi Uñitas";
+            contador.textContent = (indiceActual + 1) + " de " + fotos.length;
+        }
+
+        function abrirVisor(indice) {
+            mostrarFoto(indice);
+            visor.classList.add("activo");
+            visor.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+            cerrar.focus();
+        }
+
+        function cerrarVisor() {
+            visor.classList.remove("activo");
+            visor.setAttribute("aria-hidden", "true");
+            document.body.style.overflow = "";
+        }
+
+        fotos.forEach(function (foto, indice) {
+            foto.style.cursor = "zoom-in";
+            foto.setAttribute("tabindex", "0");
+            foto.setAttribute("role", "button");
+            foto.setAttribute("aria-label", "Ampliar " + (foto.alt || "fotografía"));
+
+            foto.addEventListener("click", function () {
+                abrirVisor(indice);
+            });
+
+            foto.addEventListener("keydown", function (evento) {
+                if (evento.key === "Enter" || evento.key === " ") {
+                    evento.preventDefault();
+                    abrirVisor(indice);
+                }
+            });
+        });
+
+        cerrar.addEventListener("click", cerrarVisor);
+        anterior.addEventListener("click", function () {
+            mostrarFoto(indiceActual - 1);
+        });
+        siguiente.addEventListener("click", function () {
+            mostrarFoto(indiceActual + 1);
+        });
+
+        visor.addEventListener("click", function (evento) {
+            if (evento.target === visor) cerrarVisor();
+        });
+
+        document.addEventListener("keydown", function (evento) {
+            if (!visor.classList.contains("activo")) return;
+            if (evento.key === "Escape") cerrarVisor();
+            if (evento.key === "ArrowLeft") mostrarFoto(indiceActual - 1);
+            if (evento.key === "ArrowRight") mostrarFoto(indiceActual + 1);
+        });
+    });
+    </script>
 
 </body>
 </html>
