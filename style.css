@@ -1433,3 +1433,88 @@ footer{
     }
 
 }
+/* ==========================================
+   EMI UÑITAS - MEJORAS PARA CELULARES
+========================================== */
+
+/* Evitar desbordamientos horizontales */
+html {
+    overflow-x: clip;
+    scroll-padding-top: 85px;
+}
+
+body { overflow-x: clip; }
+img { max-width: 100%; }
+
+/* Mejoras para tablets */
+@media (max-width: 900px) {
+    .servicios,
+    .precios { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .galeria { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .galeria img { height: 280px; }
+}
+
+/* Mejoras para celulares */
+@media (max-width: 700px) {
+    section { padding: 48px 16px; }
+
+    .nav { gap: 12px; padding: 12px 16px; flex-wrap: wrap; }
+    .menu { justify-content: center; gap: 10px 16px; flex-wrap: wrap; }
+    .menu a { padding: 6px 0; font-size: 0.82rem; }
+    .nav-btn { padding: 9px 14px; font-size: 0.8rem; }
+
+    .hero { height: auto; min-height: 0; grid-template-columns: 1fr; }
+    .hero-text { min-height: auto; padding: 48px 22px; }
+    .hero-logo { font-size: clamp(2.8rem, 10vw, 3.5rem); }
+    .hero-title { font-size: clamp(2rem, 8vw, 2.65rem); line-height: 1.1; }
+    .hero-description { font-size: 0.92rem; line-height: 1.65; }
+    .hero-buttons { flex-direction: column; align-items: stretch; }
+    .hero-buttons .btn { min-height: 46px; text-align: center; }
+    .hero-photo { height: 340px; min-height: 340px; }
+    .hero-photo::before { display: none; }
+    .hero-photo img { object-position: 85% center; }
+
+    .beneficios { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; padding: 14px 10px; }
+    .beneficio { border-right: 0; padding: 15px 8px; }
+
+    .servicios { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .servicio { padding: 18px 12px; }
+    .servicio h3 { font-size: 1.05rem; }
+    .servicio p { font-size: 0.82rem; }
+
+    .precios { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .precio { padding: 20px 12px; }
+    .precio h3 { font-size: 1rem; }
+    .precio p { min-height: 0; font-size: 0.82rem; }
+    .precio strong { font-size: 1.4rem; }
+    .boton-precio { padding: 10px 8px; font-size: 0.8rem; }
+
+    .galeria { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .galeria img { height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 13px; }
+
+    .contacto-contenido { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .contacto-item { padding: 16px 10px; overflow-wrap: anywhere; }
+    .contacto-item h3 { font-size: 0.95rem; }
+    .contacto-item p { font-size: 0.78rem; }
+
+    .section-heading h2 { font-size: 2rem; }
+    .whatsapp-flotante { width: 52px; height: 52px; right: 14px; bottom: 14px; }
+
+    .servicios-section { padding: 55px 16px; }
+    .servicios-header h2 { font-size: 30px; }
+    .servicios-grid { grid-template-columns: 1fr; gap: 16px; }
+    .servicio-card { padding: 22px 16px; gap: 15px; }
+    .servicio-icono { min-width: 48px; width: 48px; height: 48px; font-size: 21px; }
+    .servicio-contenido h3 { font-size: 1.1rem; }
+    .servicio-bottom { flex-wrap: wrap; gap: 12px; }
+    .btn-servicio { padding: 11px 14px; }
+}
+
+/* Celulares pequeños */
+@media (max-width: 360px) {
+    .servicios, .precios, .galeria, .contacto-contenido { gap: 8px; }
+    .servicio, .precio { padding: 14px 9px; }
+    .precio strong { font-size: 1.2rem; }
+    .logo-nav strong { font-size: 1.7rem; }
+    .menu { gap: 8px 12px; }
+}
